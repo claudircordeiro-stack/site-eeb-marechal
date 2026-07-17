@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-<head><!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WW8RX2F3');</script>
-<!-- End Google Tag Manager -->
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EEB Marechal Eurico Gaspar Dutra | Portal Oficial</title>
+    <meta name="description" content="Portal oficial da EEB Marechal Eurico Gaspar Dutra, em Curitibanos - SC. Confira notícias, projetos, galeria de fotos e informações da Rede Estadual de Ensino de Santa Catarina.">
+    <link rel="canonical" href="https://eebmarechal.com.br/">
+
+    <!-- Verificação do Google Search Console: troque pelo código gerado na sua conta -->
+    <!-- <meta name="google-site-verification" content="COLE_AQUI_SEU_CODIGO"> -->
+
+    <!-- Open Graph / compartilhamento em redes sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EEB Marechal Eurico Gaspar Dutra | Portal Oficial">
+    <meta property="og:description" content="Notícias, projetos e galeria de fotos da EEB Marechal Eurico Gaspar Dutra, em Curitibanos - SC.">
+    <meta property="og:image" content="https://eebmarechal.com.br/img/cabecalho-escola.jpg">
+    <meta property="og:url" content="https://eebmarechal.com.br/">
+    <meta property="og:locale" content="pt_BR">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Inter & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -24,22 +31,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        heading: ['Syne', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
                     },
                     colors: {
                         brand: {
-                            navy: '#073b66',
-                            teal: '#009f9d',
-                            gold: '#ffc857',
-                            dark: '#132c45',
-                            light: '#f5f8fc',
-                            accent: '#f06449'
+                            navy: '#0f3460',      /* Azul Institucional */
+                            teal: '#16a085',      /* Verde Educação */
+                            gold: '#f39c12',      /* Amarelo Ouro de Destaque */
+                            dark: '#1e293b',      /* Cinza Escuro de Texto */
+                            light: '#f8fafc',     /* Fundo Claro */
+                            accent: '#3b82f6'
                         }
                     },
                     boxShadow: {
-                        'premium': '0 18px 45px -18px rgba(7, 59, 102, 0.28)',
-                        'hover-card': '0 24px 50px -18px rgba(0, 159, 157, 0.3)'
+                        'premium': '0 10px 30px -10px rgba(15, 52, 96, 0.15)',
+                        'hover-card': '0 20px 40px -15px rgba(22, 160, 133, 0.2)'
                     }
                 }
             }
@@ -47,10 +54,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     <style>
         body {
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
         section[id] {
             scroll-margin-top: 5rem;
@@ -68,271 +75,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #ffffff;
         }
         #site-header .logo-text-sub {
-            color: #63e3dc;
+            color: #7fd9c4;
         }
         #site-header .nav-link:hover {
-            color: #ffc857;
+            color: #f39c12;
         }
         #site-header.is-scrolled {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom-color: #f1f5f9;
-            box-shadow: 0 4px 20px -8px rgba(7, 59, 102, 0.14);
+            box-shadow: 0 4px 20px -8px rgba(15, 52, 96, 0.12);
         }
         #site-header.is-scrolled .nav-link {
             color: #475569;
         }
         #site-header.is-scrolled .nav-link:hover {
-            color: #073b66;
+            color: #0f3460;
         }
         #site-header.is-scrolled .logo-text-main {
-            color: #073b66;
+            color: #0f3460;
         }
         #site-header.is-scrolled .logo-text-sub {
-            color: #009f9d;
+            color: #16a085;
         }
         #site-header.is-scrolled .menu-toggle {
-            color: #073b66;
+            color: #0f3460;
         }
         #site-header.is-scrolled .menu-toggle:hover {
             background-color: #f1f5f9;
-        }
-
-        :root {
-            --ink: #073b66;
-            --paper: #f5f8fc;
-            --sun: #ffc857;
-            --clay: #f06449;
-            --mint: #009f9d;
-            --cyan: #22c7c4;
-        }
-        body {<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW8RX2F3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-            background:
-                radial-gradient(circle at 8% 18%, rgba(34, 199, 196, .1), transparent 26rem),
-                radial-gradient(circle at 92% 62%, rgba(255, 200, 87, .12), transparent 24rem),
-                var(--paper);
-        }
-        ::selection {
-            background: var(--sun);
-            color: var(--ink);
-        }
-        #site-header > div:first-child {
-            transition: max-width .3s ease, margin .3s ease, border-radius .3s ease, background .3s ease;
-        }
-        #site-header.is-scrolled {
-            background: transparent;
-            border: 0;
-            box-shadow: none;
-            padding-top: .65rem;
-        }
-        #site-header.is-scrolled > div:first-child {
-            max-width: 76rem;
-            background: rgba(255, 255, 255, .88);
-            border: 1px solid rgba(7, 59, 102, .1);
-            border-radius: 1.25rem;
-            box-shadow: 0 16px 45px rgba(7, 59, 102, .14);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
-        #mobile-menu {
-            background: rgba(255, 255, 255, .96);
-            border-color: rgba(7, 59, 102, .1);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
-        #inicio {
-            isolation: isolate;
-            background: #073b66;
-        }
-        #inicio::before,
-        #inicio::after {
-            content: '';
-            position: absolute;
-            border-radius: 999px;
-            pointer-events: none;
-            z-index: 1;
-        }
-        #inicio::before {
-            width: 28rem;
-            height: 28rem;
-            right: -8rem;
-            top: -9rem;
-            border: 1px solid rgba(255, 200, 87, .55);
-            box-shadow: 0 0 0 4rem rgba(34, 199, 196, .1), 0 0 0 8rem rgba(255, 200, 87, .05);
-        }
-        #inicio::after {
-            width: 18rem;
-            height: 18rem;
-            left: 42%;
-            bottom: -11rem;
-            background: rgba(240, 100, 73, .5);
-            filter: blur(2px);
-        }
-        #inicio > .absolute.inset-0.opacity-20 {
-            opacity: .3;
-            mix-blend-mode: luminosity;
-        }
-        #inicio > .absolute.inset-0.bg-gradient-to-r {
-            background: linear-gradient(105deg, rgba(7, 59, 102, .99) 5%, rgba(7, 59, 102, .92) 50%, rgba(0, 159, 157, .42) 100%);
-        }
-        #inicio h1 {
-            max-width: 12ch;
-            letter-spacing: -.055em;
-            text-wrap: balance;
-            animation: hero-rise .75s cubic-bezier(.2,.75,.2,1) both;
-        }
-        #inicio h1 + p { animation: hero-rise .75s .12s cubic-bezier(.2,.75,.2,1) both; }
-        #inicio h1 + p + div { animation: hero-rise .75s .2s cubic-bezier(.2,.75,.2,1) both; }
-        #inicio h1 span {
-            position: relative;
-            color: var(--sun);
-        }
-        #inicio h1 span::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -.08em;
-            height: .12em;
-            border-radius: 999px;
-            background: var(--clay);
-            transform: rotate(-1.5deg);
-        }
-        #inicio .md\:col-span-5 {
-            background: rgba(255, 255, 255, .12);
-            border-color: rgba(255, 255, 255, .3);
-            border-radius: 1.5rem;
-            box-shadow: 0 30px 80px rgba(2, 32, 58, .32);
-        }
-        #inicio .md\:col-span-5 a {
-            background: rgba(244, 241, 232, .08);
-            border-color: rgba(244, 241, 232, .16);
-        }
-        #inicio .md\:col-span-5 a:hover {
-            background: var(--sun);
-            color: var(--ink);
-            transform: translateY(-4px);
-        }
-        #sobre {
-            position: relative;
-            background: var(--paper);
-        }
-        #sobre .overflow-hidden.rounded-3xl {
-            border-radius: 1.75rem;
-            border-color: rgba(255,255,255,.68);
-            box-shadow: 0 32px 70px rgba(7, 59, 102, .18);
-        }
-        #sobre .absolute.bottom-6.right-6 {
-            background: rgba(7, 59, 102, .88);
-            border: 1px solid rgba(255,255,255,.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 1.25rem;
-        }
-        .numbers-panel {
-            background: linear-gradient(115deg, #073b66 0%, #075f80 48%, #009f9d 100%);
-            color: #ffffff;
-        }
-        .numbers-panel::before {
-            content: 'MARECHAL';
-            position: absolute;
-            right: -1rem;
-            top: 50%;
-            transform: translateY(-52%);
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(5rem, 15vw, 13rem);
-            line-height: 1;
-            font-weight: 800;
-            color: rgba(255,255,255,.055);
-            letter-spacing: -.08em;
-        }
-        .numbers-panel .stat-item {
-            position: relative;
-            padding: 1rem;
-        }
-        .numbers-panel .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 16%;
-            right: 0;
-            width: 1px;
-            height: 68%;
-            background: rgba(255,255,255,.28);
-        }
-        .numbers-panel .stat-value {
-            color: var(--sun);
-            letter-spacing: -.06em;
-        }
-        .numbers-panel .stat-item > div:last-child {
-            color: rgba(255, 255, 255, .82);
-        }
-        #galeria,
-        section.bg-slate-50 {
-            background-color: #eef4f9;
-        }
-        .gallery-card,
-        #noticias article,
-        #contato .bg-slate-50 {
-            border-color: rgba(7, 59, 102, .1);
-            box-shadow: 0 15px 45px rgba(7, 59, 102, .09);
-        }
-        .gallery-card:nth-child(3n+1) {
-            border-radius: 1.5rem;
-            border-top: 4px solid var(--mint);
-        }
-        .gallery-card:nth-child(3n+2) {
-            border-radius: 1.5rem;
-            border-top: 4px solid var(--sun);
-        }
-        .gallery-card:nth-child(3n) {
-            border-top: 4px solid var(--clay);
-        }
-        .gallery-card:hover,
-        #noticias article:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 28px 55px rgba(7, 59, 102, .16);
-        }
-        #noticias article {
-            border-top: 4px solid var(--mint);
-        }
-        #noticias article:nth-child(2) {
-            border-top-color: var(--sun);
-        }
-        #noticias article:nth-child(3) {
-            border-top-color: var(--clay);
-        }
-        .bg-brand-gold {
-            box-shadow: 0 10px 28px rgba(255, 200, 87, .24);
-        }
-        .bg-brand-navy,
-        .bg-brand-teal {
-            box-shadow: 0 10px 28px rgba(7, 59, 102, .16);
-        }
-        footer {
-            background: #052d50 !important;
-        }
-        input, textarea {
-            background: rgba(255,255,255,.64) !important;
-        }
-        input:focus, textarea:focus {
-            background: #fff !important;
-        }
-        @keyframes hero-rise {
-            from { opacity: 0; transform: translateY(18px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 767px) {
-            #site-header.is-scrolled { padding: .45rem .5rem 0; }
-            #inicio { min-height: auto; padding-top: 5rem; }
-            #inicio .md\:col-span-5 { border-radius: 1.25rem; }
-            .numbers-panel .stat-item:nth-child(2)::after { display: none; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
         }
     </style>
 </head>
@@ -444,11 +215,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="relative">
                     <div class="absolute -top-4 -left-4 w-72 h-72 bg-brand-teal/10 rounded-3xl -z-10 animate-pulse"></div>
                     <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-brand-navy/5 rounded-3xl -z-10"></div>
-                    <div class="overflow-hidden rounded-3xl shadow-premium border-4 border-white bg-slate-900 transition-all duration-500 hover:scale-[1.01]">
-                        <img src="img/selo-60-anos.jpg" class="w-full h-[450px] object-contain" alt="Selo comemorativo de 60 anos da EEB Marechal Eurico Gaspar Dutra">
+                    <div class="overflow-hidden rounded-3xl shadow-premium border-4 border-white transition-all duration-500 hover:scale-[1.01]">
+                        <img src="img/leitura-turma2.jpg" class="w-full h-[450px] object-cover" alt="Estudantes durante o Projeto Leitura na EEB Marechal Eurico Gaspar Dutra">
                     </div>
                     <div class="absolute bottom-6 right-6 bg-brand-navy text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-4">
-                        <div class="text-brand-gold text-4xl font-extrabold">63</div>
+                        <div class="text-brand-gold text-4xl font-extrabold">75+</div>
                         <div class="text-xs font-bold tracking-wider uppercase leading-tight text-slate-300">Anos de<br>História</div>
                     </div>
                 </div>
@@ -518,24 +289,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- PAINEL DE NÚMEROS / ESTATÍSTICAS -->
-    <section class="numbers-panel bg-brand-navy text-white py-16 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,199,196,0.34),transparent_40%)]"></div>
+    <section class="bg-brand-navy text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(22,160,133,0.3),transparent_40%)]"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="stat-item space-y-2">
-                <div class="stat-value text-4xl lg:text-5xl font-extrabold text-brand-gold">540</div>
+            <div class="space-y-2">
+                <div class="text-4xl lg:text-5xl font-extrabold text-brand-gold">+1200</div>
                 <div class="text-xs lg:text-sm font-semibold tracking-widest text-slate-300 uppercase">Estudantes Ativos</div>
             </div>
-            <div class="stat-item space-y-2">
-                <div class="stat-value text-4xl lg:text-5xl font-extrabold text-brand-gold">50+</div>
+            <div class="space-y-2">
+                <div class="text-4xl lg:text-5xl font-extrabold text-brand-gold">50+</div>
                 <div class="text-xs lg:text-sm font-semibold tracking-widest text-slate-300 uppercase">Docentes Especialistas</div>
             </div>
-            <div class="stat-item space-y-2">
-                <div class="stat-value text-4xl lg:text-5xl font-extrabold text-brand-gold">100%</div>
+            <div class="space-y-2">
+                <div class="text-4xl lg:text-5xl font-extrabold text-brand-gold">100%</div>
                 <div class="text-xs lg:text-sm font-semibold tracking-widest text-slate-300 uppercase">De Ensino Gratuito</div>
             </div>
-            <div class="stat-item space-y-2">
-                <div class="stat-value text-4xl lg:text-5xl font-extrabold text-brand-gold">63</div>
-                <div class="text-xs lg:text-sm font-semibold tracking-widest text-slate-300 uppercase">Anos de História</div>
+            <div class="space-y-2">
+                <div class="text-4xl lg:text-5xl font-extrabold text-brand-gold">24h</div>
+                <div class="text-xs lg:text-sm font-semibold tracking-widest text-slate-300 uppercase">Foco na Comunidade</div>
             </div>
         </div>
     </section>
@@ -771,7 +542,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="relative pl-20 pb-12">
                     <div class="absolute left-6 top-1.5 w-5 h-5 rounded-full border-4 border-slate-50 bg-brand-teal"></div>
                     <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm space-y-2">
-                        <span class="text-xs font-bold text-brand-teal uppercase tracking-widest">03 de agosto de 2026</span>
+                        <span class="text-xs font-bold text-brand-teal uppercase tracking-widest">Agosto 10, 2026</span>
                         <h4 class="font-bold text-brand-navy text-lg">Retorno Integral das Aulas</h4>
                         <p class="text-sm text-slate-500">Início do terceiro período/bimestre letivo para o Ensino Fundamental II e Ensino Médio.</p>
                     </div>
@@ -791,8 +562,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="relative pl-20">
                     <div class="absolute left-6 top-1.5 w-5 h-5 rounded-full border-4 border-slate-50 bg-brand-navy"></div>
                     <div class="p-6 bg-white rounded-3xl border border-slate-100 shadow-sm space-y-2">
-                        <span class="text-xs font-bold text-brand-navy uppercase tracking-widest">15 de outubro de 2026</span>
-                        <h4 class="font-bold text-brand-navy text-lg">Dia do Professor</h4>
+                        <span class="text-xs font-bold text-brand-navy uppercase tracking-widest">Outubro 15, 2026</span>
+                        <h4 class="font-bold text-brand-navy text-lg">Dia do Professor e Auxiliares</h4>
                         <p class="text-sm text-slate-500">Recesso letivo em homenagem ao dia dos educadores e equipe operacional administrativa.</p>
                     </div>
                 </div>
@@ -895,9 +666,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="#inicio" class="flex items-center gap-3">
                     <svg class="w-10 h-10" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="45" fill="#ffffff" />
-                        <path d="M50,22 L72,32 L72,55 C72,69 62,80 50,84 C38,80 28,69 28,55 L28,32 Z" fill="#073b66" />
+                        <path d="M50,22 L72,32 L72,55 C72,69 62,80 50,84 C38,80 28,69 28,55 L28,32 Z" fill="#0f3460" />
                         <path d="M50,45 C45,45 37,42 35,44 L35,62 C37,60 45,60 50,62 C55,60 63,60 65,62 L65,44 C63,42 55,45 50,45 Z" fill="#ffffff" />
-                        <polygon points="50,28 53,35 60,35 55,39 57,46 50,42 43,46 45,39 40,35 47,35" fill="#ffc857" />
+                        <polygon points="50,28 53,35 60,35 55,39 57,46 50,42 43,46 45,39 40,35 47,35" fill="#f39c12" />
                     </svg>
                     <div class="flex flex-col">
                         <span class="text-sm font-bold tracking-wider text-white uppercase leading-tight">EEB Gaspar Dutra</span>

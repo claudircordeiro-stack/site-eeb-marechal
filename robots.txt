@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eebmarechal.com.br/sitemap.xml
