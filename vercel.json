@@ -1,0 +1,12 @@
+{
+  "buildCommand": "bash tools/build.sh",
+  "outputDirectory": "public",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "eebmarechal.com.br" }],
+      "destination": "https://www.eebmarechal.com.br/:path*",
+      "permanent": true
+    }
+  ]
+}
