@@ -11,10 +11,6 @@ c06088e9f32910eb75d09e9639c5bf3d6fcdfbd5 sitemap.xml
 34e23be371536e1cadc45002dd58f01748aa0116 img/feira-cartaz.jpg
 cb1d142ea284399dd45cab7bcafc7be53cd6790f img/jesc-comunicado.jpg
 d67d86e8bb1d7cd75c181cbc952b94fa8e56d9d0 img/leitura-cartaz.jpg
-9246520e9a8f7172f36bd2c3d5c31dcfef0b7726 img/leitura-turma1.jpg
-661177ccda14394876e086f292da7021934531dc img/leitura-turma2.jpg
-87d93ad36853d62001c6fe24c0d1d7b5575e9df2 img/leitura-turma3.jpg
-731ebe40591ac128a4a8492d608f087765a01f9b img/leitura-turma4.jpg
 6bca06d145d9b551c788a9456cce957db3314513 img/logo.png
 6019110e89b991319073db670ee2408a014b8a9b img/premiacao-feira-resultado.jpg
 657da96575dc065bef5c00dceb2d14b20efda367 img/selo-60-anos.png
