@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Monta a versão publicada do site a partir da versão no ar (17/09/2026),
-# conferindo cada arquivo pelo SHA-1, e aplica a remoção da seção "Trilhas".
+# Monta a versão publicada do site:
+#  - index.html e as fotos novas (img/palestra-*) vêm deste repositório;
+#  - os demais arquivos vêm da versão no ar, conferidos um a um pelo SHA-1.
 set -euo pipefail
 BASE="https://www.eebmarechal.com.br"
 OUT="public"
@@ -11,5 +12,6 @@ while read -r sha path; do
   got=$(sha1sum "$OUT/$path" | cut -d' ' -f1)
   if [ "$got" != "$sha" ]; then echo "ERRO: $path diferente do esperado ($got)"; exit 1; fi
 done < tools/files.txt
-node tools/remover-trilhas.js "$OUT/index.html"
+cp index.html "$OUT/index.html"
+cp img/palestra-*.jpg "$OUT/img/"
 echo "Build ok"
