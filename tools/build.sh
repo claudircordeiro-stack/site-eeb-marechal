@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Monta a versão publicada do site:
-#  - index.html e as fotos novas (img/palestra-*, img/leitura-2026-*) vêm deste repositório;
+#  - index.html e as fotos novas (img/palestra-*, img/leitura-2026-*, img/dia-crianca-2026-*) vêm deste repositório;
 #  - os demais arquivos vêm da versão no ar, conferidos um a um pelo SHA-1.
 set -euo pipefail
 BASE="https://www.eebmarechal.com.br"
@@ -13,5 +13,5 @@ while read -r sha path; do
   if [ "$got" != "$sha" ]; then echo "ERRO: $path diferente do esperado ($got)"; exit 1; fi
 done < tools/files.txt
 cp index.html "$OUT/index.html"
-cp img/palestra-*.jpg img/leitura-2026-*.jpg "$OUT/img/"
+cp img/palestra-*.jpg img/leitura-2026-*.jpg img/dia-crianca-2026-*.jpg "$OUT/img/"
 echo "Build ok"
