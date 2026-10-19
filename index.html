@@ -720,6 +720,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <button onclick="filterGallery('leitura')" id="filter-leitura" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Projeto Leitura</button>
                     <button onclick="filterGallery('feira')" id="filter-feira" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Feira do Conhecimento</button>
                     <button onclick="filterGallery('culminancia')" id="filter-culminancia" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Culminância IFA</button>
+                    <button onclick="filterGallery('gincana')" id="filter-gincana" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Gincana das Cores</button>
                     <button onclick="filterGallery('dia-professor')" id="filter-dia-professor" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Dia do Professor</button>
                     <button onclick="filterGallery('dia-crianca')" id="filter-dia-crianca" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Dia da Criança</button>
                     <button onclick="filterGallery('palestra')" id="filter-palestra" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">Palestras</button>
@@ -728,6 +729,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-01.jpg', 'Equipes no Ginásio')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="img/gincana-cores-2026-01-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Equipes da gincana reunidas no ginásio com balões coloridos" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+                            <i class="fa-solid fa-magnifying-glass-plus text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-brand-navy">Equipes no Ginásio</h4>
+                        <p class="text-xs text-brand-teal font-medium uppercase tracking-wider">Gincana das Cores 2026</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-04.jpg', 'Equipe Laranja')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="img/gincana-cores-2026-04-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Torcida da Equipe Laranja com balões" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+                            <i class="fa-solid fa-magnifying-glass-plus text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-brand-navy">Equipe Laranja</h4>
+                        <p class="text-xs text-brand-teal font-medium uppercase tracking-wider">Gincana das Cores 2026</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-10.jpg', 'Prova do Giro no Bastão')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="img/gincana-cores-2026-10-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Aluno na prova do giro no bastão" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+                            <i class="fa-solid fa-magnifying-glass-plus text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-brand-navy">Prova do Giro no Bastão</h4>
+                        <p class="text-xs text-brand-teal font-medium uppercase tracking-wider">Gincana das Cores 2026</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-15.jpg', 'Cobrança de Pênalti')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="img/gincana-cores-2026-15-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Professores na cobrança de pênalti da gincana" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+                            <i class="fa-solid fa-magnifying-glass-plus text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-brand-navy">Cobrança de Pênalti</h4>
+                        <p class="text-xs text-brand-teal font-medium uppercase tracking-wider">Gincana das Cores 2026</p>
+                    </div>
+                </div>
+
                 <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="dia-professor" onclick="openLightbox('img/dia-professor-2026-02.jpg', 'Professores em Festa')">
                     <div class="h-56 overflow-hidden relative">
                         <img src="img/dia-professor-2026-02-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Professores da escola reunidos com trajes dos anos 80" loading="lazy">
@@ -1042,6 +1095,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+                <article class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm flex flex-col h-full group">
+                    <div class="h-48 relative overflow-hidden">
+                        <span class="absolute top-4 left-4 bg-brand-teal text-white text-xs font-bold px-3 py-1.5 rounded-full z-10 uppercase tracking-wide">Eventos</span>
+                        <img src="img/gincana-cores-2026-01-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Equipes da Gincana das Cores reunidas no ginásio da escola">
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow space-y-4">
+                        <div class="space-y-2">
+                            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Outubro, 2026</span>
+                            <h3 class="text-lg font-bold text-brand-navy group-hover:text-brand-teal transition-colors leading-snug">Dia do Estudante: Gincana das Cores reúne todas as turmas</h3>
+                            <p class="text-slate-600 text-sm line-clamp-3">Séries Iniciais, Ensino Fundamental Final e Ensino Médio se dividiram nas equipes Amarela, Azul, Laranja, Vermelha, Verde e Roxa em uma gincana cheia de torcida e diversão.</p>
+                        </div>
+                        <button onclick="openNewsModal('gincanaCores')" class="text-sm font-bold text-brand-navy hover:text-brand-teal flex items-center gap-1 mt-2 focus:outline-none">
+                            Ler notícia completa <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </article>
                 <article class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm flex flex-col h-full group">
                     <div class="h-48 relative overflow-hidden">
                         <span class="absolute top-4 left-4 bg-brand-accent text-white text-xs font-bold px-3 py-1.5 rounded-full z-10 uppercase tracking-wide">Homenagem</span>
@@ -1549,6 +1618,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             if (category === 'palestra') activeBtnId = 'filter-palestra';
             if (category === 'dia-crianca') activeBtnId = 'filter-dia-crianca';
             if (category === 'dia-professor') activeBtnId = 'filter-dia-professor';
+            if (category === 'gincana') activeBtnId = 'filter-gincana';
 
             const activeBtn = document.getElementById(activeBtnId);
             activeBtn.classList.add('bg-brand-navy', 'text-white');
@@ -1692,6 +1762,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const newsModalContent = document.getElementById('news-modal-content');
 
         const newsData = {
+            gincanaCores: {
+                tag: 'Eventos',
+                colorClass: 'bg-brand-teal',
+                date: 'Outubro, 2026',
+                title: 'Dia do Estudante: Gincana das Cores reúne todas as turmas',
+                paragraphs: [
+                    'Dando continuidade às comemorações do Dia do Estudante, a EEB Marechal Eurico Gaspar Dutra realizou a Gincana das Cores, com a participação de todas as turmas: Séries Iniciais, Ensino Fundamental Final e Ensino Médio.',
+                    'Os estudantes foram divididos em seis equipes — Amarela, Azul, Laranja, Vermelha, Verde e Roxa — e encheram o ginásio de cor, com balões, bandeiras, pinturas no rosto e muita torcida.',
+                    'Entre as provas, a mais animada foi a do giro no bastão seguida de cobrança de pênalti, que teve participação de alunos e também de professores. Um dia de integração, alegria e espírito de equipe!'
+                ],
+                photos: [
+                    { src: 'img/gincana-cores-2026-01.jpg', mini: 'img/gincana-cores-2026-01-mini.jpg', caption: 'Equipes reunidas no ginásio para a Gincana das Cores' },
+                    { src: 'img/gincana-cores-2026-02.jpg', mini: 'img/gincana-cores-2026-02-mini.jpg', caption: 'Equipe Vermelha' },
+                    { src: 'img/gincana-cores-2026-03.jpg', mini: 'img/gincana-cores-2026-03-mini.jpg', caption: 'Equipe Verde' },
+                    { src: 'img/gincana-cores-2026-04.jpg', mini: 'img/gincana-cores-2026-04-mini.jpg', caption: 'Equipe Laranja' },
+                    { src: 'img/gincana-cores-2026-05.jpg', mini: 'img/gincana-cores-2026-05-mini.jpg', caption: 'Equipe Azul' },
+                    { src: 'img/gincana-cores-2026-06.jpg', mini: 'img/gincana-cores-2026-06-mini.jpg', caption: 'Equipe Amarela' },
+                    { src: 'img/gincana-cores-2026-07.jpg', mini: 'img/gincana-cores-2026-07-mini.jpg', caption: 'Equipe Roxa' },
+                    { src: 'img/gincana-cores-2026-08.jpg', mini: 'img/gincana-cores-2026-08-mini.jpg', caption: 'Torcida da Equipe Amarela' },
+                    { src: 'img/gincana-cores-2026-09.jpg', mini: 'img/gincana-cores-2026-09-mini.jpg', caption: 'Professoras torcendo pela Equipe Amarela' },
+                    { src: 'img/gincana-cores-2026-10.jpg', mini: 'img/gincana-cores-2026-10-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-11.jpg', mini: 'img/gincana-cores-2026-11-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-12.jpg', mini: 'img/gincana-cores-2026-12-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-13.jpg', mini: 'img/gincana-cores-2026-13-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-14.jpg', mini: 'img/gincana-cores-2026-14-mini.jpg', caption: 'Participante se prepara para a prova' },
+                    { src: 'img/gincana-cores-2026-15.jpg', mini: 'img/gincana-cores-2026-15-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-16.jpg', mini: 'img/gincana-cores-2026-16-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-17.jpg', mini: 'img/gincana-cores-2026-17-mini.jpg', caption: 'Representantes das equipes aguardando a vez' },
+                    { src: 'img/gincana-cores-2026-18.jpg', mini: 'img/gincana-cores-2026-18-mini.jpg', caption: 'Representantes das equipes aguardando a vez' },
+                    { src: 'img/gincana-cores-2026-19.jpg', mini: 'img/gincana-cores-2026-19-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-20.jpg', mini: 'img/gincana-cores-2026-20-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-21.jpg', mini: 'img/gincana-cores-2026-21-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-22.jpg', mini: 'img/gincana-cores-2026-22-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-23.jpg', mini: 'img/gincana-cores-2026-23-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-24.jpg', mini: 'img/gincana-cores-2026-24-mini.jpg', caption: 'Prova do giro no bastão' },
+                    { src: 'img/gincana-cores-2026-25.jpg', mini: 'img/gincana-cores-2026-25-mini.jpg', caption: 'Depois do giro, a caminhada até a bola' },
+                    { src: 'img/gincana-cores-2026-26.jpg', mini: 'img/gincana-cores-2026-26-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-27.jpg', mini: 'img/gincana-cores-2026-27-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-28.jpg', mini: 'img/gincana-cores-2026-28-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-29.jpg', mini: 'img/gincana-cores-2026-29-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-30.jpg', mini: 'img/gincana-cores-2026-30-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-31.jpg', mini: 'img/gincana-cores-2026-31-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-32.jpg', mini: 'img/gincana-cores-2026-32-mini.jpg', caption: 'Cobrança de pênalti depois do giro' },
+                    { src: 'img/gincana-cores-2026-33.jpg', mini: 'img/gincana-cores-2026-33-mini.jpg', caption: 'Gol! Torcida da Equipe Verde comemora' },
+                    { src: 'img/gincana-cores-2026-34.jpg', mini: 'img/gincana-cores-2026-34-mini.jpg', caption: 'Professoras reunidas antes da prova' },
+                    { src: 'img/gincana-cores-2026-35.jpg', mini: 'img/gincana-cores-2026-35-mini.jpg', caption: 'Professoras aguardando a vez' }
+                ]
+            },
             diaProfessor: {
                 tag: 'Homenagem',
                 colorClass: 'bg-brand-accent',
