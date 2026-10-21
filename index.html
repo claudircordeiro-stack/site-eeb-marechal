@@ -728,7 +728,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <p id="gallery-hint" class="text-center text-sm text-slate-500 -mt-8 mb-8">Escolha um evento acima para ver todas as fotos.</p>
+            <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-01.jpg', 'Equipes no Ginásio')">
                     <div class="h-56 overflow-hidden relative">
                         <img src="img/gincana-cores-2026-01-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Equipes da gincana reunidas no ginásio com balões coloridos" loading="lazy">
@@ -1597,7 +1598,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function filterGallery(category) {
             const cards = document.querySelectorAll('.gallery-card');
             cards.forEach(card => {
-                if (category === 'todos' || card.getAttribute('data-category') === category) {
+                if ((category === 'todos' && !card.classList.contains('gallery-extra')) || card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -1609,6 +1610,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 btn.classList.remove('bg-brand-navy', 'text-white');
                 btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
             });
+
+            const hint = document.getElementById('gallery-hint');
+            if (hint) hint.style.display = category === 'todos' ? 'block' : 'none';
 
             let activeBtnId = 'filter-all';
             if (category === 'leitura') activeBtnId = 'filter-leitura';
@@ -2021,6 +2025,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         };
 
+        // Notícia -> filtro da galeria onde ficam todas as fotos do evento
+        const newsGalleryCategory = {
+            gincanaCores: 'gincana',
+            diaProfessor: 'dia-professor',
+            diaCrianca: 'dia-crianca',
+            palestra: 'palestra',
+            leitura: 'leitura'
+        };
+
+        // Coloca na galeria as fotos de cada notícia que ainda não têm cartão
+        (function preencherGaleria() {
+            const gridEl = document.getElementById('gallery-grid');
+            const existentes = new Set();
+            gridEl.querySelectorAll('.gallery-card').forEach(card => {
+                const m = (card.getAttribute('onclick') || '').match(/openLightbox\('([^']+)'/);
+                if (m) existentes.add(m[1]);
+            });
+            Object.entries(newsGalleryCategory).forEach(([key, cat]) => {
+                const data = newsData[key];
+                if (!data || !data.photos) return;
+                const ultimo = [...gridEl.querySelectorAll(`.gallery-card[data-category="${cat}"]`)].pop();
+                let ref = ultimo || null;
+                const btnFiltro = document.getElementById('filter-' + cat);
+                const rotulo = btnFiltro ? btnFiltro.textContent.trim() : '';
+                data.photos.forEach(ph => {
+                    if (existentes.has(ph.src)) return;
+                    const card = document.createElement('div');
+                    card.className = 'gallery-card gallery-extra bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300';
+                    card.setAttribute('data-category', cat);
+                    card.setAttribute('onclick', `openLightbox('${ph.src}', '${ph.caption.replace(/'/g, "\\'")}')`);
+                    card.style.display = 'none';
+                    card.innerHTML = `
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="${ph.mini}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${ph.caption}" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+                            <i class="fa-solid fa-magnifying-glass-plus text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-brand-navy">${ph.caption}</h4>
+                        <p class="text-xs text-brand-teal font-medium uppercase tracking-wider">${rotulo}</p>
+                    </div>`;
+                    if (ref) { ref.after(card); } else { gridEl.appendChild(card); }
+                    ref = card;
+                });
+            });
+        })();
+
         function openNewsModal(newsKey) {
             const data = newsData[newsKey];
             if (!data) return;
@@ -2031,22 +2083,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             newsModalTitle.textContent = data.title;
             newsModalContent.innerHTML = data.paragraphs.map(p => `<p>${p}</p>`).join('');
             if (data.photos && data.photos.length) {
+                const destaque = data.photos.slice(0, 3);
                 const grid = document.createElement('div');
-                grid.className = 'grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2';
-                data.photos.forEach((ph, idx) => {
+                grid.className = 'grid grid-cols-3 gap-3 pt-2';
+                destaque.forEach((ph, idx) => {
                     const btn = document.createElement('button');
                     btn.type = 'button';
                     btn.className = 'block aspect-[4/3] overflow-hidden rounded-xl bg-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-teal';
                     btn.setAttribute('aria-label', 'Ampliar foto: ' + ph.caption);
                     btn.innerHTML = `<img src="${ph.mini}" alt="${ph.caption}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">`;
-                    btn.addEventListener('click', () => openLightbox(ph.src, ph.caption, data.photos, idx));
+                    btn.addEventListener('click', () => openLightbox(ph.src, ph.caption, destaque, idx));
                     grid.appendChild(btn);
                 });
-                const label = document.createElement('p');
-                label.className = 'font-bold text-brand-navy pt-2';
-                label.textContent = `Galeria de fotos (${data.photos.length})`;
-                newsModalContent.appendChild(label);
                 newsModalContent.appendChild(grid);
+                const cat = newsGalleryCategory[newsKey];
+                if (cat && data.photos.length > 3) {
+                    const more = document.createElement('button');
+                    more.type = 'button';
+                    more.className = 'mt-2 inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-teal text-white px-5 py-2.5 rounded-full text-sm font-bold transition-colors focus:outline-none';
+                    more.innerHTML = `<i class="fa-solid fa-images"></i> Ver todas as ${data.photos.length} fotos na Galeria`;
+                    more.addEventListener('click', () => {
+                        closeNewsModal();
+                        filterGallery(cat);
+                        document.getElementById('galeria').scrollIntoView({ behavior: 'smooth' });
+                    });
+                    newsModalContent.appendChild(more);
+                }
             }
 
             newsModal.classList.remove('hidden');
