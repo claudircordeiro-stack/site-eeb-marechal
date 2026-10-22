@@ -13,5 +13,5 @@ while read -r sha path; do
   if [ "$got" != "$sha" ]; then echo "ERRO: $path diferente do esperado ($got)"; exit 1; fi
 done < tools/files.txt
 cp index.html "$OUT/index.html"
-cp img/palestra-*.jpg img/leitura-2026-*.jpg img/dia-crianca-2026-*.jpg img/dia-professor-2026-*.jpg img/gincana-cores-2026-*.jpg "$OUT/img/"
+cp img/palestra-*.jpg img/leitura-2026-*.jpg img/dia-crianca-2026-*.jpg img/dia-professor-2026-*.jpg img/gincana-cores-2026-*.jpg img/gincana-cores-2026-video-*.mp4 "$OUT/img/"
 echo "Build ok"
