@@ -497,6 +497,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .doc-card:hover .st-on, .doc-card:focus .st-on { display: inline; }
         .doc-card:hover .st-off, .doc-card:focus .st-off { display: none; }
         .lock-gold { color: #D4A017; background: linear-gradient(160deg, #FFE08A 0%, #F2B51C 45%, #B8860B 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 1px rgba(120, 80, 0, .25)); }
+        #calendario-gate:focus-within #cal-lock { transform: scale(1.06); border-color: rgba(212,160,23,.45); }
     </style>
 </head>
 <body class="bg-slate-50 text-brand-dark antialiased min-h-screen flex flex-col">
@@ -1442,7 +1443,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div id="calendario-gate" class="max-w-md mx-auto mb-16 bg-white rounded-3xl border border-slate-100 shadow-sm p-8 text-center space-y-4">
-                <i class="fa-solid fa-lock text-3xl text-brand-teal"></i>
+                <div id="cal-lock" class="mx-auto w-16 h-16 rounded-2xl bg-slate-50 border border-slate-200/70 flex items-center justify-center shadow-sm transition-all duration-300">
+                    <i id="cal-lock-icon" class="fa-solid fa-lock text-3xl lock-gold transition-transform duration-300" aria-hidden="true"></i>
+                </div>
                 <h3 class="font-bold text-brand-navy text-lg">Conteúdo protegido</h3>
                 <p class="text-sm text-slate-500">Digite a senha de acesso para visualizar o calendário escolar completo.</p>
                 <div class="flex flex-col sm:flex-row gap-2 pt-2">
@@ -2529,6 +2532,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             if (hashDigitado === CALENDARIO_SENHA_HASH) {
                 try {
                     const dados = await carregarCalendarioProtegido();
+                    const ic = document.getElementById('cal-lock-icon');
+                    ic.classList.replace('fa-lock', 'fa-lock-open'); ic.classList.add('scale-125');
+                    await new Promise(r => setTimeout(r, 450));
                     renderCalendario(dados);
                     sessionStorage.setItem('calendarioLiberado', '1');
                     document.getElementById('calendario-gate').classList.add('hidden');
@@ -2541,6 +2547,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             } else {
                 erro.classList.remove('hidden');
                 erro.textContent = 'Senha incorreta. Tente novamente.';
+                const cg = document.getElementById('calendario-gate');
+                cg.classList.remove('docs-shake'); void cg.offsetWidth; cg.classList.add('docs-shake');
                 input.value = '';
                 input.focus();
             }
