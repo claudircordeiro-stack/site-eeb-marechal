@@ -2405,7 +2405,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
         // Área de Documentos: links das pastas criptografados (AES-GCM, chave derivada da senha)
-        const DOCS_ENC = {"s":"73ltxULR6zkzjKW37RFiyg==","i":"gU8aik9uNerur2+S","d":"XiCX+5vzAj7ZrcK2MR1JdxMBvK9yJhF7lj6bWItGH5E0YTr9JgvLdNil2veFBa/8ej+M7mYmRhXnSh2v3bBGCqDYYmlaYxVHbUiDWvTD//Gqp9Knzz8iV4ZEtDpEv8/JOT1sEsjRJpCTPet7WKOpOgPpyE+dOA4Bw1J+fMCvtvpdPOGr8vEBJ8eFNBIRsp0/DY29DNKLFTn2Y7e+LuLQ4Cls/pMsA5SmuGHi3nmpCvg3mlIFsbVYskNln3UkRfqB1Z2qJthhUakFpQFt9WjcZFz77u7hvgLqHBdoMw3ePHdIsqXUd05wtQYoDBZw64Cf1FAyL1CyRxNwKIHRrs8slysEseLbyHLrJoj3SfTwY6Ri"};
+        const DOCS_ENC = {"s":"7P4YLnMD2lGSScsj9/jVTw==","i":"ymCrlFFlJMnHDj08","d":"E9t5oxcrIYsXibaC9BxY9IAF57ezSs7hOqibo9Lspx+/YcNkbzohOuMGmEVJUPpumWetE2JK+sh1P1ITbn9LwaravW5zhQ+oF5JU7uXWkK0lFuDynizeAgBt9SIJpRwfa9K9PTGBRvyGZCe0M5hOeJUgT//bn4VD7sDnf17K9iOTN6AXmZHHxQxgukM/mMl3ZYujBNZWbJGZQmItv+9utteeiPvTjmIhjdTzLo0P4QK0418CyJ7cKDW0LSIWq8IJNdwI3AsD8eKfNXVM52fxKj/qkw4yqMuJ992UAM/APedlJeHTd22D2RL7fsvA0DUzoFYp/+pW5EZiPHayOqtsDw5DMTQLZYNeGsxuw30lVw=="};
         function b64ToBytes(t) { return Uint8Array.from(atob(t), ch => ch.charCodeAt(0)); }
         async function abrirDocumentos(senha) {
             const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
