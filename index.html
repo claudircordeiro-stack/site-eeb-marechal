@@ -1452,32 +1452,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
                 <span class="text-brand-teal font-extrabold text-sm uppercase tracking-widest inline-flex items-center gap-1.5"><i class="fa-solid fa-leaf text-xs" style="color: var(--laurel);" aria-hidden="true"></i>Documentos</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy">Documentos da Escola</h2>
-                <p class="text-slate-500">Documentos institucionais da EEB Marechal Eurico Gaspar Dutra, disponíveis aos professores no Google Drive.</p>
+                <p class="text-slate-500">Documentos institucionais da EEB Marechal Eurico Gaspar Dutra, exclusivos para os professores da escola.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
-                <div class="bg-slate-50 rounded-3xl border border-slate-100 shadow-sm p-8 flex flex-col items-center text-center gap-4">
-                    <div class="w-16 h-16 rounded-2xl bg-brand-navy text-white flex items-center justify-center shadow-md">
-                        <i class="fa-brands fa-google-drive text-3xl" aria-hidden="true"></i>
-                    </div>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"><i class="fa-solid fa-lock text-[10px]" aria-hidden="true"></i> Acesso restrito</span>
-                    <h3 class="text-xl font-bold text-brand-navy">Planejamento 2026</h3>
-                    <a href="https://drive.google.com/drive/folders/1ZX1bMJqs96OhRanRgxva9M_eFeFPBZC3?usp=drive_link" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-teal text-white px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all">
-                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Abrir no Drive
-                    </a>
-                </div>
-                <div class="bg-slate-50 rounded-3xl border border-slate-100 shadow-sm p-8 flex flex-col items-center text-center gap-4">
-                    <div class="w-16 h-16 rounded-2xl bg-brand-navy text-white flex items-center justify-center shadow-md">
-                        <i class="fa-brands fa-google-drive text-3xl" aria-hidden="true"></i>
-                    </div>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"><i class="fa-solid fa-lock text-[10px]" aria-hidden="true"></i> Acesso restrito</span>
-                    <h3 class="text-xl font-bold text-brand-navy">Atas Pré-Conselho de Classe 2026</h3>
-                    <a href="https://drive.google.com/drive/folders/14fOSCImGXB-_x0Zlxmg9eKCF29lrqOUk?usp=drive_link" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-teal text-white px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all">
-                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Abrir no Drive
-                    </a>
-                </div>
+            <div id="docs-gate" class="max-w-md mx-auto bg-slate-50 rounded-3xl border border-slate-100 shadow-sm p-8 text-center space-y-4">
+                <i class="fa-solid fa-lock text-3xl text-brand-teal" aria-hidden="true"></i>
+                <h3 class="font-bold text-brand-navy text-lg">Área dos professores</h3>
+                <p class="text-sm text-slate-500">Digite a senha de acesso dos professores para ver as pastas de documentos.</p>
+                <form id="docs-form" class="flex flex-col sm:flex-row gap-2 pt-2" autocomplete="off">
+                    <label for="docs-senha" class="sr-only">Senha de acesso</label>
+                    <input type="password" id="docs-senha" placeholder="Senha de acesso" class="flex-1 px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all text-center sm:text-left">
+                    <button type="submit" id="docs-btn" class="px-6 py-3 bg-brand-navy hover:bg-brand-teal text-white font-bold rounded-xl shadow-md transition-all">Entrar</button>
+                </form>
+                <p id="docs-erro" class="text-xs text-red-500 font-semibold hidden">Senha incorreta. Tente novamente.</p>
             </div>
-            <p class="max-w-2xl mx-auto mt-8 text-center text-sm text-slate-500"><i class="fa-solid fa-circle-info text-brand-teal" aria-hidden="true"></i> Acesso para professores: entre com sua conta institucional do Google (<strong>@sed.sc.gov.br</strong>) para abrir as pastas. Não é preciso senha no site.</p>
+
+            <div id="docs-conteudo" class="hidden">
+                <div id="docs-grid" class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6"></div>
+                <p class="max-w-2xl mx-auto mt-8 text-center text-sm text-slate-500"><i class="fa-solid fa-circle-info text-brand-teal" aria-hidden="true"></i> Ao abrir a pasta, entre com sua conta institucional do Google (<strong>@sed.sc.gov.br</strong>).</p>
+            </div>
         </div>
     </section>
 
@@ -2409,6 +2402,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         };
         window.addEventListener('scroll', toggleHeaderState);
         toggleHeaderState();
+
+
+        // Área de Documentos: links das pastas criptografados (AES-GCM, chave derivada da senha)
+        const DOCS_ENC = {"s":"73ltxULR6zkzjKW37RFiyg==","i":"gU8aik9uNerur2+S","d":"XiCX+5vzAj7ZrcK2MR1JdxMBvK9yJhF7lj6bWItGH5E0YTr9JgvLdNil2veFBa/8ej+M7mYmRhXnSh2v3bBGCqDYYmlaYxVHbUiDWvTD//Gqp9Knzz8iV4ZEtDpEv8/JOT1sEsjRJpCTPet7WKOpOgPpyE+dOA4Bw1J+fMCvtvpdPOGr8vEBJ8eFNBIRsp0/DY29DNKLFTn2Y7e+LuLQ4Cls/pMsA5SmuGHi3nmpCvg3mlIFsbVYskNln3UkRfqB1Z2qJthhUakFpQFt9WjcZFz77u7hvgLqHBdoMw3ePHdIsqXUd05wtQYoDBZw64Cf1FAyL1CyRxNwKIHRrs8slysEseLbyHLrJoj3SfTwY6Ri"};
+        function b64ToBytes(t) { return Uint8Array.from(atob(t), ch => ch.charCodeAt(0)); }
+        async function abrirDocumentos(senha) {
+            const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
+            const chave = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64ToBytes(DOCS_ENC.s), iterations: 250000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+            const texto = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBytes(DOCS_ENC.i) }, chave, b64ToBytes(DOCS_ENC.d));
+            return JSON.parse(new TextDecoder().decode(texto));
+        }
+        function mostrarDocumentos(pastas) {
+            const grid = document.getElementById('docs-grid');
+            grid.innerHTML = '';
+            pastas.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-50 rounded-3xl border border-slate-100 shadow-sm p-8 flex flex-col items-center text-center gap-4';
+                card.innerHTML = `
+                    <div class="w-16 h-16 rounded-2xl bg-brand-navy text-white flex items-center justify-center shadow-md"><i class="fa-brands fa-google-drive text-3xl" aria-hidden="true"></i></div>
+                    <span class="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"><i class="fa-solid fa-lock text-[10px]" aria-hidden="true"></i> Acesso restrito</span>
+                    <h3 class="text-xl font-bold text-brand-navy"></h3>
+                    <a target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-teal text-white px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Abrir no Drive</a>`;
+                card.querySelector('h3').textContent = p.t;
+                card.querySelector('a').href = p.u;
+                grid.appendChild(card);
+            });
+            document.getElementById('docs-gate').classList.add('hidden');
+            document.getElementById('docs-conteudo').classList.remove('hidden');
+        }
+        document.getElementById('docs-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const input = document.getElementById('docs-senha');
+            const erro = document.getElementById('docs-erro');
+            const btn = document.getElementById('docs-btn');
+            btn.disabled = true; btn.textContent = 'Verificando...';
+            try {
+                mostrarDocumentos(await abrirDocumentos(input.value));
+                erro.classList.add('hidden');
+                try { sessionStorage.setItem('docs-acesso', input.value); } catch (_) {}
+            } catch (_) {
+                erro.classList.remove('hidden');
+                input.value = ''; input.focus();
+            } finally {
+                btn.disabled = false; btn.textContent = 'Entrar';
+            }
+        });
+        (async () => {
+            let salva = null;
+            try { salva = sessionStorage.getItem('docs-acesso'); } catch (_) {}
+            if (salva) { try { mostrarDocumentos(await abrirDocumentos(salva)); } catch (_) {} }
+        })();
 
         const CALENDARIO_SENHA_HASH = 'eb016d0868df584cca63b62afd63038fff93d6225a531c778ec2404498c9c030';
 
