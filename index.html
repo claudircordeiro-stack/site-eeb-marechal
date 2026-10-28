@@ -730,6 +730,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <p id="gallery-hint" class="text-center text-sm text-slate-500 -mt-8 mb-8">Escolha um evento acima para ver todas as fotos.</p>
             <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-resultado.jpg', 'Resultado final da Gincana das Cores')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="img/gincana-cores-2026-resultado-mini.jpg" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" alt="Cartaz com o resultado final da Gincana das Cores" loading="lazy">
+                        <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity duration-300">
+                            <i class="fa-solid fa-magnifying-glass-plus text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-brand-navy">Resultado Final</h4>
+                        <p class="text-xs text-brand-teal font-medium uppercase tracking-wider">Laranja campeã · Gincana das Cores</p>
+                    </div>
+                </div>
+
                 <div class="gallery-card bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer transition-all duration-300" data-category="gincana" onclick="openLightbox('img/gincana-cores-2026-01.jpg', 'Equipes no Ginásio')">
                     <div class="h-56 overflow-hidden relative">
                         <img src="img/gincana-cores-2026-01-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Equipes da gincana reunidas no ginásio com balões coloridos" loading="lazy">
@@ -1164,13 +1177,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <article class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm flex flex-col h-full group">
                     <div class="h-48 relative overflow-hidden">
                         <span class="absolute top-4 left-4 bg-brand-teal text-white text-xs font-bold px-3 py-1.5 rounded-full z-10 uppercase tracking-wide">Eventos</span>
-                        <img src="img/gincana-cores-2026-01-mini.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Equipes da Gincana das Cores reunidas no ginásio da escola">
+                        <img src="img/gincana-cores-2026-resultado-mini.jpg" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" alt="Cartaz com o resultado final da Gincana das Cores: Laranja campeã, Azul em 2º e Amarelo em 3º">
                     </div>
                     <div class="p-6 flex flex-col justify-between flex-grow space-y-4">
                         <div class="space-y-2">
-                            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-regular fa-calendar"></i> Outubro, 2026</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1"><i class="fa-regular fa-calendar"></i> 19 a 23 de Outubro, 2026</span>
                             <h3 class="text-lg font-bold text-brand-navy group-hover:text-brand-teal transition-colors leading-snug">Dia do Estudante: Gincana das Cores reúne todas as turmas</h3>
-                            <p class="text-slate-600 text-sm line-clamp-3">Séries Iniciais, Ensino Fundamental Final e Ensino Médio se dividiram nas equipes Amarela, Azul, Laranja, Vermelha, Verde e Roxa em uma gincana cheia de torcida e diversão.</p>
+                            <p class="text-slate-600 text-sm line-clamp-3">Equipe Laranja é a campeã, com 93.850 pontos! Azul ficou em 2º e Amarelo em 3º, depois de cinco dias de provas com todas as turmas, das Séries Iniciais ao Ensino Médio.</p>
                         </div>
                         <button onclick="openNewsModal('gincanaCores')" class="text-sm font-bold text-brand-navy hover:text-brand-teal flex items-center gap-1 mt-2 focus:outline-none">
                             Ler notícia completa <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -1834,7 +1847,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             gincanaCores: {
                 tag: 'Eventos',
                 colorClass: 'bg-brand-teal',
-                date: 'Outubro, 2026',
+                date: '19 a 23 de Outubro, 2026',
                 title: 'Dia do Estudante: Gincana das Cores reúne todas as turmas',
                 paragraphs: [
                     'Dando continuidade às comemorações do Dia do Estudante, a EEB Marechal Eurico Gaspar Dutra realizou a Gincana das Cores, com a participação de todas as turmas: Séries Iniciais, Ensino Fundamental Final e Ensino Médio.',
@@ -1842,9 +1855,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     'Entre as provas, uma das mais animadas foi a do giro no bastão seguida de cobrança de pênalti, que teve participação de alunos e também de professores. Outro destaque foi o cabo de guerra, disputado por todas as equipes — das Séries Iniciais ao Ensino Médio — com muita força, garra e torcida! Teve ainda a Prova da Laranja, em que as duplas precisavam levar a laranja equilibrada entre as testas, sem usar as mãos. No vôlei de lençol, as equipes seguravam um lençol para lançar e receber a bola por cima da rede, num desafio de muito trabalho em equipe.',
                     'As fantasias também roubaram a cena: cada equipe caprichou nos personagens, nas bandeiras e nas pinturas no rosto, deixando o ginásio ainda mais colorido. Teve até penteado maluco, com fantasminhas, polvo de pelúcia e copo de macarrão instantâneo no cabelo!',
                     'A gincana contou ainda com a dança das cadeiras e um quiz de perguntas e respostas, em que os representantes das equipes disputavam quem apertava primeiro o botão do painel de luzes para responder. Quem errava levava uma divertida torta na cara, para alegria da torcida! Até os professores entraram na disputa.',
-                    'Um dia de integração, alegria e espírito de equipe!'
+                    'Depois de cinco dias de disputa, de 19 a 23 de outubro, a Equipe Laranja foi a grande campeã da Gincana das Cores, com 93.850 pontos — 7.100 à frente da Equipe Azul, que ficou em 2º lugar com 86.750 pontos. A Equipe Amarela fechou o pódio em 3º lugar, com 78.200 pontos. Parabéns a todas as equipes pela participação!',
+                    'Foram dias de integração, alegria e espírito de equipe. Juntos fazemos a diferença!'
                 ],
                 photos: [
+                    { src: 'img/gincana-cores-2026-resultado.jpg', mini: 'img/gincana-cores-2026-resultado-mini.jpg', caption: 'Resultado final: Laranja campeã (93.850 pts), Azul em 2º (86.750 pts) e Amarelo em 3º (78.200 pts)' },
                     { src: 'img/gincana-cores-2026-01.jpg', mini: 'img/gincana-cores-2026-01-mini.jpg', caption: 'Equipes reunidas no ginásio para a Gincana das Cores' },
                     { src: 'img/gincana-cores-2026-02.jpg', mini: 'img/gincana-cores-2026-02-mini.jpg', caption: 'Equipe Vermelha' },
                     { src: 'img/gincana-cores-2026-03.jpg', mini: 'img/gincana-cores-2026-03-mini.jpg', caption: 'Equipe Verde' },
