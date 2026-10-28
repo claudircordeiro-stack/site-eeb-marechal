@@ -488,6 +488,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
             .reveal { opacity: 1 !important; transform: none !important; }
         }
+        @keyframes docsShake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+        .docs-shake { animation: docsShake .45s ease; }
+        .drive-logo { opacity: .78; transition: opacity .3s ease; }
+        .doc-card:hover .drive-logo, .doc-card:focus .drive-logo { opacity: 1; }
+        #docs-gate:focus-within #docs-lock { transform: scale(1.06); border-color: rgba(0,159,157,.4); }
+        .doc-card .st-on { display: none; }
+        .doc-card:hover .st-on, .doc-card:focus .st-on { display: inline; }
+        .doc-card:hover .st-off, .doc-card:focus .st-off { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-brand-dark antialiased min-h-screen flex flex-col">
@@ -1456,7 +1464,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div id="docs-gate" class="max-w-md mx-auto bg-slate-50 rounded-3xl border border-slate-100 shadow-sm p-8 text-center space-y-4">
-                <i class="fa-solid fa-lock text-3xl text-brand-teal" aria-hidden="true"></i>
+                <div id="docs-lock" class="mx-auto w-16 h-16 rounded-2xl bg-white/70 border border-slate-200/70 flex items-center justify-center shadow-sm transition-all duration-300">
+                    <i id="docs-lock-icon" class="fa-solid fa-lock text-2xl text-brand-teal transition-transform duration-300" aria-hidden="true"></i>
+                </div>
                 <h3 class="font-bold text-brand-navy text-lg">Área dos professores</h3>
                 <p class="text-sm text-slate-500">Digite a senha de acesso dos professores para ver as pastas de documentos.</p>
                 <form id="docs-form" class="flex flex-col sm:flex-row gap-2 pt-2" autocomplete="off">
@@ -2417,15 +2427,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const grid = document.getElementById('docs-grid');
             grid.innerHTML = '';
             pastas.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'bg-slate-50 rounded-3xl border border-slate-100 shadow-sm p-8 flex flex-col items-center text-center gap-4';
+                const card = document.createElement('a');
+                card.target = '_blank'; card.rel = 'noopener noreferrer'; card.href = p.u;
+                card.className = 'doc-card group bg-slate-50 hover:bg-white rounded-3xl border border-slate-100 hover:border-brand-teal/40 shadow-sm hover:shadow-hover-card p-8 flex flex-col items-center text-center gap-4 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand-teal';
+                card.setAttribute('aria-label', 'Abrir no Google Drive: ' + p.t);
                 card.innerHTML = `
-                    <div class="w-16 h-16 rounded-2xl bg-brand-navy text-white flex items-center justify-center shadow-md"><i class="fa-brands fa-google-drive text-3xl" aria-hidden="true"></i></div>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"><i class="fa-solid fa-lock text-[10px]" aria-hidden="true"></i> Acesso restrito</span>
+                    <div class="w-20 h-20 rounded-2xl bg-white/60 backdrop-blur border border-slate-200/70 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-md"><svg viewBox="0 0 87.3 78" class="drive-logo w-10 h-10" aria-hidden="true"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg></div>
+                    <span class="restrito inline-flex items-center gap-1.5 bg-brand-gold/20 group-hover:bg-brand-teal/15 text-brand-navy group-hover:text-brand-teal text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide transition-colors duration-300">
+                        <i class="fa-solid fa-lock text-[10px] st-off" aria-hidden="true"></i><i class="fa-solid fa-lock-open text-[10px] st-on" aria-hidden="true"></i>
+                        <span class="st-off">Acesso restrito</span><span class="st-on">Acesso liberado</span>
+                    </span>
                     <h3 class="text-xl font-bold text-brand-navy"></h3>
-                    <a target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-teal text-white px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Abrir no Drive</a>`;
+                    <span class="mt-auto inline-flex items-center gap-2 bg-brand-navy group-hover:bg-brand-teal text-white px-6 py-3 rounded-full text-sm font-bold shadow-md transition-all"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Abrir no Drive <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i></span>`;
                 card.querySelector('h3').textContent = p.t;
-                card.querySelector('a').href = p.u;
                 grid.appendChild(card);
             });
             document.getElementById('docs-gate').classList.add('hidden');
@@ -2438,11 +2452,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const btn = document.getElementById('docs-btn');
             btn.disabled = true; btn.textContent = 'Verificando...';
             try {
-                mostrarDocumentos(await abrirDocumentos(input.value));
+                const pastas = await abrirDocumentos(input.value);
+                const ic = document.getElementById('docs-lock-icon');
+                ic.classList.replace('fa-lock', 'fa-lock-open'); ic.classList.add('scale-125');
+                await new Promise(r => setTimeout(r, 450));
+                mostrarDocumentos(pastas);
                 erro.classList.add('hidden');
                 try { sessionStorage.setItem('docs-acesso', input.value); } catch (_) {}
             } catch (_) {
                 erro.classList.remove('hidden');
+                const lk = document.getElementById('docs-gate');
+                lk.classList.remove('docs-shake'); void lk.offsetWidth; lk.classList.add('docs-shake');
                 input.value = ''; input.focus();
             } finally {
                 btn.disabled = false; btn.textContent = 'Entrar';
